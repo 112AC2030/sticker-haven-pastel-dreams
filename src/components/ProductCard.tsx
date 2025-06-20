@@ -37,17 +37,22 @@ const ProductCard = ({ product }: ProductCardProps) => {
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
         </div>
         <div className="p-4">
-          <h3 className="font-bold text-lg text-gray-800 mb-2 group-hover:text-pink-600 transition-colors">
+          <h3 className="font-bold text-lg text-gray-800 mb-2 transition-colors" style={{ color: 'var(--group-hover-color, #1f2937)' }}>
             {product.name}
           </h3>
           <p className="text-gray-600 text-sm mb-3 line-clamp-2">
             {product.description}
           </p>
           <div className="flex items-center justify-between">
-            <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="text-xl font-bold text-transparent bg-clip-text" style={{
+              background: 'linear-gradient(135deg, #FF9CB5, #FC809F)',
+              WebkitBackgroundClip: 'text'
+            }}>
               {formatPrice(product.price)}
             </span>
-            <span className="text-xs bg-pink-100 px-2 py-1 rounded-full text-gray-600">
+            <span className="text-xs px-2 py-1 rounded-full text-gray-600" style={{
+              backgroundColor: '#FFE9EF'
+            }}>
               {product.category}
             </span>
           </div>

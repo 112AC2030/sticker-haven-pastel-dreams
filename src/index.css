@@ -7,7 +7,7 @@
 
 @layer base {
   :root {
-    --background: 255 229 240; /* pastel pink background */
+    --background: 255 233 239; /* #FFE9EF - lightest pink */
     --foreground: 51 51 51; /* dark gray text */
 
     --card: 255 255 255;
@@ -16,35 +16,35 @@
     --popover: 255 255 255;
     --popover-foreground: 51 51 51;
 
-    --primary: 255 182 217; /* pastel pink primary */
+    --primary: 255 201 215; /* #FFC9D7 - light pink primary */
     --primary-foreground: 51 51 51;
 
-    --secondary: 229 249 240; /* pastel mint */
+    --secondary: 255 233 239; /* #FFE9EF - lightest pink */
     --secondary-foreground: 51 51 51;
 
     --muted: 245 245 245;
     --muted-foreground: 107 114 126;
 
-    --accent: 240 229 255; /* pastel lavender */
+    --accent: 255 188 205; /* #FFBCCD - medium light pink */
     --accent-foreground: 51 51 51;
 
     --destructive: 255 107 107;
     --destructive-foreground: 255 255 255;
 
-    --border: 229 229 234;
-    --input: 229 229 234;
-    --ring: 255 182 217;
+    --border: 255 201 215; /* #FFC9D7 */
+    --input: 255 201 215; /* #FFC9D7 */
+    --ring: 255 156 181; /* #FF9CB5 */
 
     --radius: 1rem;
 
     --sidebar-background: 255 255 255;
     --sidebar-foreground: 51 51 51;
-    --sidebar-primary: 255 182 217;
+    --sidebar-primary: 255 201 215; /* #FFC9D7 */
     --sidebar-primary-foreground: 51 51 51;
-    --sidebar-accent: 255 229 240;
+    --sidebar-accent: 255 233 239; /* #FFE9EF */
     --sidebar-accent-foreground: 51 51 51;
-    --sidebar-border: 229 229 234;
-    --sidebar-ring: 255 182 217;
+    --sidebar-border: 255 201 215; /* #FFC9D7 */
+    --sidebar-ring: 255 156 181; /* #FF9CB5 */
   }
 }
 
@@ -55,7 +55,7 @@
 
   body {
     @apply bg-background text-foreground font-cute;
-    background: linear-gradient(135deg, #FFE5F0 0%, #E5F9F0 100%);
+    background: linear-gradient(135deg, #FFE9EF 0%, #FFC9D7 100%);
     min-height: 100vh;
   }
 
@@ -65,23 +65,23 @@
   }
 
   ::-webkit-scrollbar-track {
-    background: #FFE5F0;
+    background: #FFE9EF;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #FFB3D9;
+    background: #FFC9D7;
     border-radius: 4px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #FF99CC;
+    background: #FF9CB5;
   }
 }
 
 @layer components {
   .cute-shadow {
-    box-shadow: 0 4px 20px rgba(255, 182, 217, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 201, 215, 0.3);
   }
 
   .cute-hover {
@@ -89,23 +89,30 @@
   }
 
   .pastel-gradient {
-    background: linear-gradient(135deg, #FFE5F0 0%, #E5F9F0 50%, #F0E5FF 100%);
+    background: linear-gradient(135deg, #FFE9EF 0%, #FFC9D7 50%, #FFBCCD 100%);
   }
 
   .sticker-card {
-    @apply bg-white rounded-2xl cute-shadow cute-hover border-2 border-pink-200;
+    @apply bg-white rounded-2xl cute-shadow cute-hover border-2;
+    border-color: #FFC9D7;
   }
 
   .sticker-card:hover {
-    @apply border-pink-300 shadow-xl;
-    box-shadow: 0 8px 30px rgba(255, 182, 217, 0.4);
+    border-color: #FF9CB5;
+    box-shadow: 0 8px 30px rgba(255, 156, 181, 0.4);
   }
 
   .cute-button {
-    @apply bg-gradient-to-r from-pastel-pink-dark to-pastel-mint-dark text-gray-700 font-bold py-3 px-6 rounded-full cute-shadow cute-hover transition-all duration-300;
+    background: linear-gradient(135deg, #FF9CB5 0%, #FC809F 100%);
+    @apply text-white font-bold py-3 px-6 rounded-full cute-shadow cute-hover transition-all duration-300;
   }
 
   .cute-input {
-    @apply bg-white border-2 border-pastel-pink rounded-full px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none focus:border-pastel-mint-dark transition-colors duration-300;
+    @apply bg-white border-2 rounded-full px-4 py-3 text-gray-700 placeholder-gray-400 focus:outline-none transition-colors duration-300;
+    border-color: #FFC9D7;
+  }
+
+  .cute-input:focus {
+    border-color: #FF9CB5;
   }
 }

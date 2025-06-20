@@ -63,18 +63,18 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Pastel colors for sticker shop
+				// Updated pastel colors based on your palette
 				pastel: {
-					pink: '#FFE5F0',
-					'pink-dark': '#FFB3D9',
-					mint: '#E5F9F0',
-					'mint-dark': '#B3F0D1',
-					lavender: '#F0E5FF',
-					'lavender-dark': '#D9B3FF',
-					peach: '#FFE5D9',
-					'peach-dark': '#FFD1B3',
-					sky: '#E5F5FF',
-					'sky-dark': '#B3E5FF'
+					pink: '#FFE9EF',        // lightest
+					'pink-dark': '#FFC9D7', // light
+					mint: '#FFBCCD',        // medium light
+					'mint-dark': '#FF9CB5', // medium
+					lavender: '#FC809F',    // darkest
+					'lavender-dark': '#FC809F',
+					peach: '#FFE9EF',
+					'peach-dark': '#FFC9D7',
+					sky: '#FFBCCD',
+					'sky-dark': '#FF9CB5'
 				}
 			},
 			fontFamily: {
