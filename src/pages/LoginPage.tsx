@@ -26,14 +26,14 @@ const LoginPage = () => {
 
     if (login(username, password)) {
       toast({
-        title: "Đăng nhập thành công! 🎉",
-        description: "Chào mừng bạn đến với Sticker Shop",
+        title: "Login successful! 🎉",
+        description: "Welcome to Sticker Shop",
       });
       navigate('/');
     } else {
       toast({
-        title: "Đăng nhập thất bại! ❌",
-        description: "Tên đăng nhập hoặc mật khẩu không đúng",
+        title: "Login failed! ❌",
+        description: "Username or password is incorrect",
         variant: "destructive"
       });
     }
@@ -47,24 +47,24 @@ const LoginPage = () => {
         <CardHeader className="text-center">
           <div className="text-6xl mb-4 animate-bounce-cute">🌸</div>
           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Đăng nhập
+            Login
           </CardTitle>
           <p className="text-gray-600 mt-2">
-            Chào mừng bạn trở lại Sticker Shop!
+            Welcome back to Sticker Shop!
           </p>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="username" className="text-gray-700 font-semibold">
-                Tên đăng nhập
+                Username
               </Label>
               <Input
                 id="username"
                 type="text"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
-                placeholder="Nhập tên đăng nhập"
+                placeholder="Enter username"
                 className="cute-input"
                 required
               />
@@ -72,7 +72,7 @@ const LoginPage = () => {
             
             <div className="space-y-2">
               <Label htmlFor="password" className="text-gray-700 font-semibold">
-                Mật khẩu
+                Password
               </Label>
               <div className="relative">
                 <Input
@@ -80,7 +80,7 @@ const LoginPage = () => {
                   type={showPassword ? "text" : "password"}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Nhập mật khẩu"
+                  placeholder="Enter password"
                   className="cute-input pr-12"
                   required
                 />
@@ -102,7 +102,7 @@ const LoginPage = () => {
 
             <div className="bg-pastel-sky p-4 rounded-xl border-2 border-pastel-sky-dark">
               <p className="text-sm text-gray-600 mb-2">
-                <strong>Thông tin đăng nhập demo:</strong>
+                <strong>Demo login info:</strong>
               </p>
               <p className="text-sm">
                 <span className="font-mono bg-white px-2 py-1 rounded">username: guest</span>
@@ -120,12 +120,12 @@ const LoginPage = () => {
               {isLoading ? (
                 <div className="flex items-center space-x-2">
                   <div className="animate-spin rounded-full h-4 w-4 border-2 border-gray-600 border-t-transparent" />
-                  <span>Đang đăng nhập...</span>
+                  <span>Logging in...</span>
                 </div>
               ) : (
                 <>
                   <LogIn className="w-5 h-5 mr-2" />
-                  Đăng nhập
+                  Login
                 </>
               )}
             </Button>
@@ -136,7 +136,7 @@ const LoginPage = () => {
               to="/" 
               className="text-pink-600 hover:text-pink-800 font-semibold cute-hover"
             >
-              ← Quay lại trang chủ
+              ← Back to home
             </Link>
           </div>
         </CardContent>
