@@ -22,10 +22,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('zh-TW', {
-      style: 'currency',
-      currency: 'TWD'
-    }).format(price);
+    return `NT$${price}`;
   };
 
   return (
@@ -50,7 +47,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
             <span className="text-xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
               {formatPrice(product.price)}
             </span>
-            <span className="text-xs bg-pastel-lavender px-2 py-1 rounded-full text-gray-600">
+            <span className="text-xs bg-pink-100 px-2 py-1 rounded-full text-gray-600">
               {product.category}
             </span>
           </div>

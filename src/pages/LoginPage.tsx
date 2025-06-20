@@ -43,7 +43,7 @@ const LoginPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
       <div className="absolute inset-0 pastel-gradient opacity-50" />
-      <Card className="w-full max-w-md relative z-10 cute-shadow border-2 border-pastel-pink">
+      <Card className="w-full max-w-md relative z-10 cute-shadow border-2 border-pink-200">
         <CardHeader className="text-center">
           <div className="text-6xl mb-4 animate-bounce-cute">🌸</div>
           <CardTitle className="text-3xl font-bold bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
@@ -100,7 +100,7 @@ const LoginPage = () => {
               </div>
             </div>
 
-            <div className="bg-pastel-sky p-4 rounded-xl border-2 border-pastel-sky-dark">
+            <div className="bg-pink-50 p-4 rounded-xl border-2 border-pink-200">
               <p className="text-sm text-gray-600 mb-2">
                 <strong>Demo login info:</strong>
               </p>

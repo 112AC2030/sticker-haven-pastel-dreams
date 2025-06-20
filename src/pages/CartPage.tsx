@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useCart } from '@/context/CartContext';
 import { useAuth } from '@/context/AuthContext';
@@ -15,10 +14,7 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('zh-TW', {
-      style: 'currency',
-      currency: 'TWD'
-    }).format(price);
+    return `NT$${price}`;
   };
 
   const handleCheckout = () => {
@@ -78,7 +74,7 @@ const CartPage = () => {
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
             {cartItems.map((item) => (
-              <Card key={item.id} className="cute-shadow border-2 border-pastel-pink">
+              <Card key={item.id} className="cute-shadow border-2 border-pink-200">
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-4">
                     <img
@@ -102,7 +98,7 @@ const CartPage = () => {
                         variant="outline"
                         size="icon"
                         onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                        className="h-8 w-8 rounded-full border-2 border-pastel-pink"
+                        className="h-8 w-8 rounded-full border-2 border-pink-200"
                       >
                         <Minus className="w-4 h-4" />
                       </Button>
@@ -113,7 +109,7 @@ const CartPage = () => {
                         variant="outline"
                         size="icon"
                         onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                        className="h-8 w-8 rounded-full border-2 border-pastel-mint"
+                        className="h-8 w-8 rounded-full border-2 border-pink-200"
                       >
                         <Plus className="w-4 h-4" />
                       </Button>
@@ -134,20 +130,20 @@ const CartPage = () => {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="cute-shadow border-2 border-pastel-mint sticky top-24">
+            <Card className="cute-shadow border-2 border-pink-200 sticky top-24">
               <CardHeader>
                 <CardTitle className="text-2xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
                   Order Summary
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="flex justify-between items-center py-2 border-b border-pastel-pink">
+                <div className="flex justify-between items-center py-2 border-b border-pink-200">
                   <span className="text-gray-600">Items:</span>
                   <span className="font-semibold">
                     {cartItems.reduce((total, item) => total + item.quantity, 0)}
                   </span>
                 </div>
-                <div className="flex justify-between items-center py-2 border-b border-pastel-pink">
+                <div className="flex justify-between items-center py-2 border-b border-pink-200">
                   <span className="text-gray-600">Shipping:</span>
                   <span className="font-semibold text-green-600">Free</span>
                 </div>
