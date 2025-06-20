@@ -93,7 +93,7 @@
   }
 
   .sticker-card {
-    @apply bg-white rounded-2xl p-4 cute-shadow cute-hover border-2 border-pastel-pink;
+    @apply bg-white rounded-2xl cute-shadow cute-hover border-2 border-pastel-pink;
   }
 
   .cute-button {

@@ -15,17 +15,17 @@ const CartPage = () => {
   const navigate = useNavigate();
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('vi-VN', {
+    return new Intl.NumberFormat('zh-TW', {
       style: 'currency',
-      currency: 'VND'
+      currency: 'TWD'
     }).format(price);
   };
 
   const handleCheckout = () => {
     if (!isAuthenticated) {
       toast({
-        title: "Vui lòng đăng nhập! 🔐",
-        description: "Bạn cần đăng nhập để thanh toán",
+        title: "Please login! 🔐",
+        description: "You need to login to checkout",
         variant: "destructive"
       });
       navigate('/login');
@@ -33,8 +33,8 @@ const CartPage = () => {
     }
 
     toast({
-      title: "Thanh toán thành công! 🎉",
-      description: `Tổng tiền: ${formatPrice(getTotalPrice())}`,
+      title: "Checkout successful! 🎉",
+      description: `Total: ${formatPrice(getTotalPrice())}`,
     });
     clearCart();
   };
@@ -47,15 +47,15 @@ const CartPage = () => {
           <div className="text-center">
             <div className="text-8xl mb-6 animate-bounce-cute">🛒</div>
             <h1 className="text-3xl font-bold text-gray-700 mb-4">
-              Giỏ hàng trống
+              Your cart is empty
             </h1>
             <p className="text-gray-500 mb-8">
-              Hãy thêm những sticker dễ thương vào giỏ hàng nhé!
+              Add some cute stickers to your cart!
             </p>
             <Link to="/">
               <Button className="cute-button">
                 <ShoppingBag className="w-5 h-5 mr-2" />
-                Mua sắm ngay
+                Shop Now
               </Button>
             </Link>
           </div>
@@ -70,7 +70,7 @@ const CartPage = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Giỏ hàng của bạn 🛒
+            Your Cart 🛒
           </h1>
         </div>
 
@@ -137,22 +137,22 @@ const CartPage = () => {
             <Card className="cute-shadow border-2 border-pastel-mint sticky top-24">
               <CardHeader>
                 <CardTitle className="text-2xl bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-                  Tổng đơn hàng
+                  Order Summary
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex justify-between items-center py-2 border-b border-pastel-pink">
-                  <span className="text-gray-600">Số lượng sản phẩm:</span>
+                  <span className="text-gray-600">Items:</span>
                   <span className="font-semibold">
                     {cartItems.reduce((total, item) => total + item.quantity, 0)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center py-2 border-b border-pastel-pink">
-                  <span className="text-gray-600">Phí vận chuyển:</span>
-                  <span className="font-semibold text-green-600">Miễn phí</span>
+                  <span className="text-gray-600">Shipping:</span>
+                  <span className="font-semibold text-green-600">Free</span>
                 </div>
                 <div className="flex justify-between items-center py-4 text-xl font-bold">
-                  <span>Tổng cộng:</span>
+                  <span>Total:</span>
                   <span className="bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
                     {formatPrice(getTotalPrice())}
                   </span>
@@ -162,11 +162,11 @@ const CartPage = () => {
                   className="w-full cute-button text-lg py-6"
                 >
                   <span className="mr-2">💝</span>
-                  Thanh toán
+                  Checkout
                 </Button>
                 {!isAuthenticated && (
                   <p className="text-sm text-gray-500 text-center">
-                    💡 Vui lòng đăng nhập để thanh toán
+                    💡 Please login to checkout
                   </p>
                 )}
               </CardContent>

@@ -16,15 +16,15 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const handleAddToCart = () => {
     addToCart(product);
     toast({
-      title: "Đã thêm vào giỏ hàng! 🛒",
-      description: `${product.name} đã được thêm vào giỏ hàng của bạn`,
+      title: "Added to cart! 🛒",
+      description: `${product.name} has been added to your cart`,
     });
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('vi-VN', {
+    return new Intl.NumberFormat('zh-TW', {
       style: 'currency',
-      currency: 'VND'
+      currency: 'TWD'
     }).format(price);
   };
 
@@ -62,7 +62,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
           className="w-full cute-button group-hover:shadow-xl"
         >
           <span className="mr-2">🛒</span>
-          Thêm vào giỏ hàng
+          Add to Cart
         </Button>
       </CardFooter>
     </Card>

@@ -14,7 +14,7 @@ const ProductsPage = () => {
             Sticker Wonderland 🌟
           </h1>
           <p className="text-gray-600 text-lg">
-            Khám phá bộ sưu tập sticker dễ thương từ xứ sở thần tiên
+            Discover our cute sticker collection from fairyland
           </p>
         </div>
 
@@ -28,10 +28,10 @@ const ProductsPage = () => {
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🔍</div>
             <h3 className="text-xl font-semibold text-gray-600 mb-2">
-              Không tìm thấy sản phẩm
+              No products found
             </h3>
             <p className="text-gray-500">
-              Hãy thử tìm kiếm với từ khóa khác nhé!
+              Try searching with different keywords!
             </p>
           </div>
         )}

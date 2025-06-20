@@ -36,9 +36,9 @@ const SearchPage = () => {
     const sorted = [...filtered].sort((a, b) => {
       switch (sortBy) {
         case 'name-asc':
-          return a.name.localeCompare(b.name, 'vi');
+          return a.name.localeCompare(b.name);
         case 'name-desc':
-          return b.name.localeCompare(a.name, 'vi');
+          return b.name.localeCompare(a.name);
         case 'price-asc':
           return a.price - b.price;
         case 'price-desc':
@@ -52,18 +52,18 @@ const SearchPage = () => {
   }, [searchTerm, sortBy, categoryFilter]);
 
   const categoryLabels = {
-    all: 'Tất cả',
-    characters: 'Nhân vật',
-    scenes: 'Cảnh',
-    nature: 'Thiên nhiên',
-    objects: 'Đồ vật'
+    all: 'All',
+    characters: 'Characters',
+    scenes: 'Scenes',
+    nature: 'Nature',
+    objects: 'Objects'
   };
 
   const sortLabels = {
-    'name-asc': 'Tên A-Z',
-    'name-desc': 'Tên Z-A',
-    'price-asc': 'Giá thấp → cao',
-    'price-desc': 'Giá cao → thấp'
+    'name-asc': 'Name A-Z',
+    'name-desc': 'Name Z-A',
+    'price-asc': 'Price Low → High',
+    'price-desc': 'Price High → Low'
   };
 
   return (
@@ -72,10 +72,10 @@ const SearchPage = () => {
       <main className="container mx-auto px-4 py-8">
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-500 to-purple-500 bg-clip-text text-transparent">
-            Tìm kiếm & Lọc sản phẩm 🔍
+            Search & Filter Products 🔍
           </h1>
           <p className="text-gray-600 text-lg">
-            Tìm những sticker yêu thích của bạn
+            Find your favorite stickers
           </p>
         </div>
 
@@ -88,7 +88,7 @@ const SearchPage = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
                 <Input
                   type="text"
-                  placeholder="Tìm kiếm sticker..."
+                  placeholder="Search stickers..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10 cute-input"
@@ -99,7 +99,7 @@ const SearchPage = () => {
               <Select value={categoryFilter} onValueChange={(value) => setCategoryFilter(value as CategoryFilter)}>
                 <SelectTrigger className="cute-input">
                   <Filter className="w-4 h-4 mr-2" />
-                  <SelectValue placeholder="Chọn danh mục" />
+                  <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-pastel-pink cute-shadow">
                   {Object.entries(categoryLabels).map(([value, label]) => (
@@ -118,7 +118,7 @@ const SearchPage = () => {
                   ) : (
                     <SortDesc className="w-4 h-4 mr-2" />
                   )}
-                  <SelectValue placeholder="Sắp xếp theo" />
+                  <SelectValue placeholder="Sort by" />
                 </SelectTrigger>
                 <SelectContent className="bg-white border-2 border-pastel-lavender cute-shadow">
                   {Object.entries(sortLabels).map(([value, label]) => (
@@ -133,7 +133,7 @@ const SearchPage = () => {
             {/* Active Filters Display */}
             {(searchTerm || categoryFilter !== 'all') && (
               <div className="mt-4 flex flex-wrap gap-2">
-                <span className="text-sm text-gray-600">Bộ lọc hiện tại:</span>
+                <span className="text-sm text-gray-600">Active filters:</span>
                 {searchTerm && (
                   <span className="bg-pastel-pink px-3 py-1 rounded-full text-sm">
                     🔍 "{searchTerm}"
@@ -153,7 +153,7 @@ const SearchPage = () => {
                   }}
                   className="text-pink-600 hover:text-pink-800 text-sm"
                 >
-                  Xóa bộ lọc
+                  Clear filters
                 </Button>
               </div>
             )}
@@ -163,9 +163,9 @@ const SearchPage = () => {
         {/* Results Summary */}
         <div className="mb-6">
           <p className="text-gray-600">
-            Tìm thấy <span className="font-semibold text-pink-600">{filteredAndSortedProducts.length}</span> sản phẩm
+            Found <span className="font-semibold text-pink-600">{filteredAndSortedProducts.length}</span> products
             {searchTerm && (
-              <span> cho từ khóa "<span className="font-semibold">{searchTerm}</span>"</span>
+              <span> for "<span className="font-semibold">{searchTerm}</span>"</span>
             )}
           </p>
         </div>
@@ -182,10 +182,10 @@ const SearchPage = () => {
           <div className="text-center py-16">
             <div className="text-8xl mb-6 animate-bounce-cute">🔍</div>
             <h3 className="text-2xl font-semibold text-gray-600 mb-4">
-              Không tìm thấy sản phẩm
+              No products found
             </h3>
             <p className="text-gray-500 mb-6">
-              Hãy thử tìm kiếm với từ khóa khác hoặc thay đổi bộ lọc nhé!
+              Try searching with different keywords or change your filters!
             </p>
             <Button
               onClick={() => {
@@ -195,7 +195,7 @@ const SearchPage = () => {
               }}
               className="cute-button"
             >
-              Xem tất cả sản phẩm
+              View all products
             </Button>
           </div>
         )}
